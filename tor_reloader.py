@@ -21,6 +21,14 @@ from colorama import init
 from termcolor import colored
 
 
+#  be sure your internet service provider supports tor! its impoirtant for this script
+# For ubuntu systems do these steps:
+# 1. sudo apt install tor
+# 2. sudo systemctl start tor.service
+
+
+
+
 def change_ip(reload_time):
 
     # tor proxy yenilenme aninda istek atmiyor 
@@ -30,7 +38,12 @@ def change_ip(reload_time):
 
     if platform == "linux" or platform == "linux2":
 
-        os.system("service tor reload")
+        os.system("sudo systemctl  reload tor.service")
+        time.sleep(5)
+        response = requests.get("http://ip-api.com/json/?fields=61439",proxies=dict(http="socks5://127.0.0.1:9050",https="socks5://127.0.0.1:9050")).json()["query"]
+        print(colored(f"Reloaded Tor! Now Your Ip is {response}", 'green', 'on_red'))
+    
+        time.sleep(reload_time-5)
     elif platform == "darwin":
         # MACOSX
         while(True):
