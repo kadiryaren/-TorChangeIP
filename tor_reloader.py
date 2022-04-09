@@ -21,10 +21,14 @@ from colorama import init
 from termcolor import colored
 
 
-#  be sure your internet service provider supports tor! its impoirtant for this script
+#  be sure your internet service provider supports tor! its important for this script
 # For ubuntu systems do these steps:
 # 1. sudo apt install tor
 # 2. sudo systemctl start tor.service
+
+# For MacOS system 
+# 1. install TOR 
+# 2. brew install tor 
 
 
 
