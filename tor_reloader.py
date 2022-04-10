@@ -58,8 +58,10 @@ def change_ip(reload_time):
             print(colored(f"Reloaded Tor! Now Your Ip is {response}", 'green', 'on_red'))
        
             time.sleep(reload_time-5)
-    else:
-        print("Your OS is not supported")
+    elif platform =="win32":
+            os.system("taskkill /f /im tor.exe")
+            os.system("cd c:\\Tor Browser\\Browser\\TorBrowser\\Tor ")
+            os.system("tor.exe -service install")
     
     
 
